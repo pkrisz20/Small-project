@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Project</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <!-- JQUERY -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <!-- GSAP -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
+    <!-- SWIPER -->
+    <script defer src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <!-- SLICK -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- HERE MAPS -->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css">
+    <script defer type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script defer type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script defer type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script defer type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+
+    <!-- SCRIPTS -->
+    <script defer src="js/nav.js"></script>
+    <script defer src="js/validate.js"></script>
+    <script defer src="js/validate-login.js"></script>
+    <script defer src="js/swiper.js"></script>
+    <script defer src="js/slick-hero.js"></script>
+    <script defer src="js/slick.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/gsap.js"></script>
+    <script defer src="js/map.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="header">
+        <!-- MOBILE NUMBER -->
+        <div class="mobile-div">
+            <a class="number" href="#">+36 55 729 557</a>
+        </div>
+
+        <div class="wrapper">
+
+            <!-- LOGO -->
+            <div class="logo-div">
+                <img href="#" class="logo" src="img/marvel-logo.png">
+            </div>
+
+            <div class="modal-nav">
+            </div>
+
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <ul class="menubar">
+                    <li class="list-item null section1 active"><a class="link" href="#section1">Home</a></li>
+                    <li class="list-item first section2"><a class="link" href="#section2">Swiper</a></li>
+                    <li class="list-item sec section3"><a class="link" href="#section3">Slick</a></li>
+                    <li class="list-item third section4"><a class="link" href="#section4">Contact</a></li>
+                    <li class="list-item"><a class="link login-link" href="#">Log In</a></li>
+                    <li class="list-item"><a class="link register-link" href="#">Sign Up</a></li>
+                    <div class="nav-number">
+                        <a class="number" href="#">+36 55 729 557</a>
+                    </div>
+                </ul>
+            </nav>
+    
+            <!-- ICONS -->
+            <div class="icons-div">
+                <a class="icon"><i class="fas fa-heart"></i></a>
+                <a class="icon"><i class="fas js-shopping fa-shopping-cart"></i></a>
+                <a class="icon"><i class="fas fa-search"></i></a>
+            </div>
+
+        </div>
+
+        <!-- HAMBURGER MENU -->
+        <div class="hamburger-div">
+            <i class="open-menu fas fa-bars"></i>
+            <i class="close-menu fas fa-times"></i>
+        </div>
+
+    </header>
+
+    <!-- /////////////////////////////////////////////// -->
+    <!-- HERO -->
+    <!-- /////////////////////////////////////////////// -->
+    <div class="hero-text">
+        <h1>Watch <span>The Newest</span> 2021 <span>Marvel</span> Trailer</h1>
+        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, ati alar nemo!</h2>
+        <button class="watch-btn"><a target="blank" href="https://www.youtube.com/watch?v=rt-2cxAiPJk">WATCH TRAILER</a></button>
+    </div>
+
+    <div class="hero-div section" id="section1">
+
+        <div class="hero-slider">
+
+            <div class="hero-slider-item">
+                <div class="wrapper-hero">
+                    <video class="hero-video" src="img/marvel.mp4" autoplay muted loop></video>
+                </div>
+            </div>
+
+            <div class="hero-slider-item">
+                <img src="img/ironman.jpg">
+            </div>
+            
+            <div class="hero-slider-item">
+                <img src="img/marvel2.jpg">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="overlay">
+
+        <!-- SEARCH FORM -->
+        <div class="search-form">
+            <form class="form">
+                <i class="close-icon js-close-search fas fa-times"></i>
+                <h1>Search for anything</h1>
+                <input type="text" placeholder="Type here to search..." class="text-input">
+                <input class="submit" type="submit" value="SEARCH">
+            </form>
+        </div>
+
+        <!-- BEST PRODUCT -->
+        <div class="liked">
+            <i class="close-liked fas fa-times"></i>
+            <img src="img/best.png">
+            <h1>BEST PRODUCT OF THE YEAR</h1>
+        </div>
+
+        <!-- SIGN UP -->
+        <div class="register">
+            <i class="close-register fas fa-times"></i>
+            <h1>SIGN UP FOR FREE</h1>
+            <form id="reg-form" method="POST">
+                <input class="input-txt email-reg" placeholder="Type here your email address..." name="email-reg" type="email">
+                <input class="input-txt username-reg" placeholder="Type here your username..." name="username-reg" type="text">
+                <input class="input-txt pass-reg" placeholder="Type here your password..." name="password-reg" type="password">
+                <input class="input-txt pass-rep-reg" placeholder="Verify your password..." name="password-repeat-reg" type="password">
+                <input id="submit-reg" class="submit-btn" type="submit" name="submit" value="SIGN UP">
+            </form>
+            <div id="show-error-reg">No error!</div>
+            <div id="success-reg">You have been registered successfully!</div>
+        </div>
+
+        <!-- LOG IN -->
+        <div class="login">
+            <i class="close-login fas fa-times"></i>
+            <h1>LOG IN</h1>
+            <form id="log-form" method="POST">
+                <input class="input-txt username-log" placeholder="Email or username..." name="email-log" type="text">
+                <input class="input-txt pass-log" placeholder="Password..." name="password-log" type="password">
+                <input id="submit-log" class="submit-btn" name="submit" type="submit" value="LOG IN">
+            </form>
+            <div id="show-error-log">No error!</div>
+            <div id="success-log">You have been logged in successfully!</div>
+        </div>
+
+    </div>
+
+    <!-- SHOPPING SLIDER -->
+    <div class="buy-div js-buy">
+        <i class="cancel-buy fas fa-times"></i>
+        <div class="product">
+            <img src="img/product.png">
+            <h1>gamer mouse</h1>
+            <h2>20€</h2>
+            <i class="cancel-product fas fa-times"></i>
+        </div>
+    </div>
+
+    <!-- /////////////////////////////////////////////// -->
+    <!-- SWIPER -->
+    <!-- /////////////////////////////////////////////// -->
+
+    <div class="swiper-div section" id="section2">
+
+        <div class="swiper">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img class="background" src="img/products.jpg">
+                </div>
+
+                <div class="swiper-slide">
+                    <img class="background" src="img/aboutus.jpg">
+                </div>
+
+                <div class="swiper-slide">
+                    <img class="background" src="img/contact.png">
+                </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+        
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+
+    <!-- /////////////////////////////////////////////// -->
+    <!-- SLICK -->
+    <!-- /////////////////////////////////////////////// -->
+
+    <div class="slider-div section" id="section3">
+
+        <div class="slider">
+
+            <div class="slider-item">
+                <img src="img/head1.jpg">
+                <h1><span>GUCI </span>Headphone</h1>
+                <h1 class="price">$150.99 - $160.89</h1>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="slider-item">
+                <img src="img/head2.jpg">
+                <h1><span>COOL </span>Headphone</h1>
+                <h1 class="price">$150.99 - $160.89</h1>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="slider-item">
+                <img src="img/head3.jpg">
+                <h1><span>GUCI </span>Headphone</h1>
+                <h1 class="price">$150.99 - $160.89</h1>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+
+            <div class="slider-item">
+                <img src="img/head4.jpg">
+                <h1><span>BEAT </span>Headphone</h1>
+                <h1 class="price">$150.99 - $160.89</h1>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- /////////////////////////////////////////////// -->
+    <!-- CONTACT -->
+    <!-- /////////////////////////////////////////////// -->
+
+    <div id="section4" class="contact section">
+        <div class="contact-content">
+            <h2>Contact Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, voluptas. Inventore reiciendis dignissimos laudantium enim ex tempore assumenda a rerum qui, dolorum voluptas veniam animi, eum dolore impedit, quis temporibus.</p>
+        </div>
+
+        <div class="container">
+            <div class="contactinfo">
+
+                <div class="box">
+                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>31/A Old Town Road,<br>Los Angeles, CA, USA<br>55605</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>555-354-5068</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>example@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form class="form-contact">
+                    
+                    <h2>Send Message</h2>
+                    <div class="inputbox">
+                        <input type="text" required>
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputbox">
+                        <input placeholder=" " id="email-contact" type="email" required>
+                        <span id="span-contact">Email</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea required></textarea>
+                        <span>Type your message here...</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="submit" class="submit-btn" value="SEND">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="map-div" id="map"></div>
+
+</body>
+</html>
