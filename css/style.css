@@ -12,6 +12,64 @@ body {
 
 .sticky {
   background-color: #167ABB;
+  height: auto;
+  width: 100vw;
+}
+
+.sticky .mobile-div {
+  display: none;
+}
+
+.sticky .hamburger-div {
+  visibility: hidden;
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  right: 30px;
+  top: 20px;
+  z-index: 3;
+}
+
+.sticky .hamburger-div .open-menu, .sticky .hamburger-div .close-menu {
+  font-size: 30px;
+  color: #fff;
+}
+
+.sticky .wrapper {
+  height: auto;
+}
+
+.sticky .wrapper .logo-div .logo {
+  width: 120px;
+  height: auto;
+}
+
+.sticky .wrapper .navbar {
+  height: auto;
+}
+
+.sticky .wrapper .navbar .menubar .list-item {
+  padding: 15px;
+}
+
+.sticky .wrapper .navbar .menubar .list-item .link {
+  font-size: 16px;
+}
+
+.sticky .wrapper .icons-div a {
+  font-size: 18px;
+}
+
+@media (max-width: 1200px) {
+  .sticky .wrapper .navbar {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .sticky .hamburger-div {
+    top: 20px;
+  }
 }
 
 .overlay {
@@ -32,7 +90,7 @@ header {
   width: 100vw;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  height: auto;
+  height: 120px;
   position: fixed;
   z-index: 3;
 }
@@ -62,7 +120,7 @@ header .mobile-div a {
 
 header .wrapper {
   width: 1200px;
-  height: auto;
+  height: 120px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -119,12 +177,15 @@ header .wrapper .navbar .menubar {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .wrapper .navbar .menubar .list-item {
-  position: relative;
   list-style-type: none;
   padding: 20px;
+  border-radius: 15px;
 }
 
 header .wrapper .navbar .menubar .list-item .link {
@@ -133,62 +194,18 @@ header .wrapper .navbar .menubar .list-item .link {
   text-decoration: none;
   color: #fff;
   font-size: 20px;
-}
-
-header .wrapper .navbar .menubar .list-item .link::after {
-  content: '';
-  position: absolute;
-  left: 0px;
-  top: 50px;
-  right: 0;
-  bottom: 0;
-  width: 80%;
-  height: 2px;
-  margin: 0 auto;
-  background-color: #fff;
-  -webkit-transform: scale(0, 1);
-          transform: scale(0, 1);
-  -webkit-transform-origin: 0% 100%;
-          transform-origin: 0% 100%;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-}
-
-header .wrapper .navbar .menubar .list-item .link:hover::after {
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-}
-
-header .wrapper .navbar .menubar .list-item .link:hover {
   cursor: pointer;
 }
 
-header .wrapper .navbar .menubar .active {
+header .wrapper .navbar .menubar .list-item:hover {
   background-color: #F39C12;
-  border-radius: 15px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-header .wrapper .navbar .menubar .active a {
-  -webkit-transition: .4s;
-  transition: .4s;
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-header .wrapper .navbar .menubar .active:hover {
-  background-color: #85C1E9;
+header .wrapper .navbar .menubar .active {
+  background-color: #F39C12;
   cursor: pointer;
-}
-
-header .wrapper .navbar .menubar .active:hover a {
-  color: #000;
-  font-weight: bold;
 }
 
 header .wrapper .navbar .nav-number {
@@ -214,11 +231,11 @@ header .wrapper .icons-div a {
   transition: .4s;
   padding: 0 20px;
   color: #fff;
+  cursor: pointer;
 }
 
 header .wrapper .icons-div a:hover {
   color: #F39C12;
-  cursor: pointer;
 }
 
 header .hamburger-div {
@@ -227,12 +244,12 @@ header .hamburger-div {
   height: 60px;
   position: fixed;
   right: 30px;
-  top: 10px;
+  top: 40px;
   z-index: 3;
 }
 
 header .hamburger-div .open-menu, header .hamburger-div .close-menu {
-  font-size: 50px;
+  font-size: 60px;
   color: #fff;
 }
 
@@ -247,15 +264,15 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   z-index: 1;
 }
 
-.hero-text h1 {
+.hero-text .hero-text-title {
   font-size: 36px;
 }
 
-.hero-text h1 span {
+.hero-text .hero-text-title span {
   color: #B03A2E;
 }
 
-.hero-text h2 {
+.hero-text .hero-text-subtitle {
   font-size: 30px;
 }
 
@@ -415,8 +432,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 }
 
 .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero .hero-video {
-  background-size: cover;
-  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  overflow: hidden;
 }
 
 .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero::after {
@@ -430,13 +450,19 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 }
 
 .hero-div .hero-slider .slick-list .slick-track .hero-slider-item img {
-  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100vh;
+  width: 100vw;
+  -o-object-position: center;
+     object-position: center;
+  overflow: hidden;
 }
 
 .hero-div .hero-slider .slick-dots {
   position: absolute;
   bottom: 0;
+  padding: 0;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -459,6 +485,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   border-radius: 100%;
   color: transparent;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .hero-div .hero-slider .slick-dots .slick-active button {
@@ -466,6 +493,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   border-radius: 100%;
   color: transparent;
   background-color: #B03A2E;
+  cursor: pointer;
 }
 
 .search-form {
@@ -519,7 +547,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
           transform: scale(1.3, 1.3);
 }
 
-.search-form .form h1 {
+.search-form .form .form-title {
   color: #fff;
   letter-spacing: 2px;
 }
@@ -548,12 +576,12 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   border: 2px solid #fff;
   color: #fff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .search-form .form .submit:hover {
   color: #F39C12;
   border: 2px solid #F39C12;
-  cursor: pointer;
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
 }
@@ -576,16 +604,16 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   font-size: 40px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .liked i:hover {
-  cursor: pointer;
   color: #F39C12;
   -webkit-transform: scale(1.4, 1.4);
           transform: scale(1.4, 1.4);
 }
 
-.liked h1 {
+.liked .liked-title {
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -612,6 +640,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   right: -10px;
   color: #fff;
   font-size: 40px;
+  cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -620,10 +649,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   color: #F39C12;
   -webkit-transform: scale(1.4, 1.4);
           transform: scale(1.4, 1.4);
-  cursor: pointer;
 }
 
-.register h1 {
+.register .register-title {
   color: #F39C12;
   text-align: center;
 }
@@ -668,12 +696,12 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   padding: 10px 40px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .register form .submit-btn:hover {
-  cursor: pointer;
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   background-color: #F39C12;
@@ -721,16 +749,16 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   font-size: 40px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .login .close-login:hover {
   color: #F39C12;
   -webkit-transform: scale(1.4, 1.4);
           transform: scale(1.4, 1.4);
-  cursor: pointer;
 }
 
-.login h1 {
+.login .login-title {
   color: #F39C12;
   text-align: center;
 }
@@ -775,12 +803,12 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   padding: 10px 40px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .login form .submit-btn:hover {
-  cursor: pointer;
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   background-color: #F39C12;
@@ -828,11 +856,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   font-size: 40px;
+  cursor: pointer;
 }
 
 .buy-div .cancel-buy:hover {
   color: #E74C3C;
-  cursor: pointer;
 }
 
 .buy-div .product {
@@ -847,7 +875,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   height: auto;
 }
 
-.buy-div .product h1 {
+.buy-div .product .product-title {
   text-transform: uppercase;
   color: #F39C12;
 }
@@ -859,13 +887,13 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 .buy-div .product .cancel-product {
   color: #F39C12;
   font-size: 30px;
+  cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .buy-div .product .cancel-product:hover {
   color: #E74C3C;
-  cursor: pointer;
 }
 
 .buy-open {
@@ -936,6 +964,21 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   height: auto;
 }
 
+.swiper .swiper-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.swiper .swiper-pagination span {
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+}
+
 .swiper .swiper-button-prev, .swiper .swiper-button-next {
   color: #fff;
 }
@@ -978,7 +1021,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 .slider-div .slider .slick-prev {
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 30px;
   background: transparent;
   border: none;
   color: transparent;
@@ -991,24 +1034,19 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   top: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  right: 0;
+  left: 0;
   font-size: 50px;
   font-family: "Font Awesome 5 Pro";
-  content: '\f054';
+  content: '\f053';
   color: #333;
   z-index: 1;
-}
-
-.slider-div .slider .slick-prev:hover::before {
   cursor: pointer;
-  width: 60px;
-  height: 60px;
 }
 
 .slider-div .slider .slick-next {
   position: absolute;
   top: 50%;
-  left: 0;
+  right: 0;
   background: transparent;
   border: none;
   color: transparent;
@@ -1021,10 +1059,10 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   top: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  left: 50px;
+  right: -30px;
   font-size: 50px;
   font-family: "Font Awesome 5 Pro";
-  content: '\f053';
+  content: '\f054';
   color: #333;
   z-index: 1;
 }
@@ -1037,6 +1075,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 
 .slider-div .slider .slick-dots {
   position: absolute;
+  padding: 0;
   bottom: 0;
   padding: 0;
   margin: 0;
@@ -1065,17 +1104,16 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   width: 80px;
   height: 10px;
   border-radius: 10px;
-}
-
-.slider-div .slider .slick-dots li button:hover {
   cursor: pointer;
 }
 
 .slider-div .slider .slick-dots .slick-active button {
   background: #E19F20;
+  cursor: pointer;
 }
 
 .slider-div .slider .slider-item {
+  border: 2px solid #F39C12;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1089,20 +1127,23 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0;
+  width: 150px;
+  height: auto;
+  margin: 0 30px;
+  padding: 15px;
 }
 
 .slider-div .slider .slider-item img {
-  width: 70%;
+  width: 95%;
   height: auto;
   border-radius: 5px;
 }
 
-.slider-div .slider .slider-item h1 {
+.slider-div .slider .slider-item .slider-title {
   color: #333;
 }
 
-.slider-div .slider .slider-item h1 span {
+.slider-div .slider .slider-item .slider-title span {
   color: #F39C12;
   font-weight: 900;
 }
@@ -1122,10 +1163,10 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   font-weight: 700;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .slider-div .slider .slider-item .add-to-cart:hover {
-  cursor: pointer;
   background-color: #E19F20;
   color: #333;
 }
@@ -1223,6 +1264,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   border-radius: 50%;
   font-size: 22px;
   color: #E19F20;
+  cursor: pointer;
 }
 
 .contact .container .contactinfo .box .text {
@@ -1239,7 +1281,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   line-height: 24px;
 }
 
-.contact .container .contactinfo .box .text h3 {
+.contact .container .contactinfo .box .text .contact-title {
   font-weight: 500;
   color: #E19F20;
   margin: 0;
@@ -1262,7 +1304,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   margin: 0 auto;
 }
 
-.contact .container .contact-form form h2 {
+.contact .container .contact-form form .form-title {
   font-size: 30px;
   color: #3C4856;
   font-weight: 500;
@@ -1286,14 +1328,12 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 }
 
 .contact .container .contact-form form .inputbox input:focus ~ span, .contact .container .contact-form form .inputbox input:valid ~ span {
-  color: #e91e63;
   font-size: 12px;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
 }
 
 .contact .container .contact-form form .inputbox #email-contact:not(:placeholder-shown) ~ #span-contact {
-  color: #e91e63;
   font-size: 12px;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
@@ -1311,7 +1351,6 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 }
 
 .contact .container .contact-form form .inputbox textarea:focus ~ span, .contact .container .contact-form form .inputbox textarea:valid ~ span {
-  color: #e91e63;
   font-size: 12px;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
@@ -1349,7 +1388,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
 }
 
 .map-div {
-  margin: 50px 0;
+  margin: 0;
   width: 100%;
   height: 60vh;
   background-color: #b3d5e6;
@@ -1367,9 +1406,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   }
   header {
     width: 100vw;
+    height: auto;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-    height: auto;
     position: fixed;
   }
   header .mobile-div {
@@ -1377,7 +1416,6 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   }
   header .wrapper {
     width: 100vw;
-    height: auto;
     margin: 0 auto;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1429,67 +1467,6 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
         -ms-flex-pack: center;
             justify-content: center;
     text-align: center;
-  }
-  header .wrapper .navbar .menubar .list-item {
-    position: relative;
-    list-style-type: none;
-    padding: 20px;
-  }
-  header .wrapper .navbar .menubar .list-item .link {
-    -webkit-transition: .4s;
-    transition: .4s;
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-  }
-  header .wrapper .navbar .menubar .list-item .link::after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    width: 80%;
-    height: 2px;
-    margin: 0 auto;
-    background-color: #fff;
-    -webkit-transform: scale(0, 1);
-            transform: scale(0, 1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  }
-  header .wrapper .navbar .menubar .list-item .link:hover::after {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
-  }
-  header .wrapper .navbar .menubar .list-item .link:hover {
-    cursor: pointer;
-  }
-  header .wrapper .navbar .menubar .active {
-    background-color: #F39C12;
-    border-radius: 15px;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  header .wrapper .navbar .menubar .active .home {
-    -webkit-transition: .4s;
-    transition: .4s;
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  header .wrapper .navbar .menubar .active:hover {
-    background-color: #85C1E9;
-    cursor: pointer;
-  }
-  header .wrapper .navbar .menubar .active:hover .home {
-    color: #000;
-    font-weight: bold;
   }
   header .wrapper .navbar .menubar .nav-number {
     display: -webkit-box;
@@ -1559,10 +1536,10 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     transition: .4s;
     padding: 0 20px;
     color: #fff;
+    cursor: pointer;
   }
   header .wrapper .icons-div a:hover {
     color: #F39C12;
-    cursor: pointer;
   }
   header .hamburger-div {
     visibility: visible;
@@ -1611,13 +1588,13 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     text-align: center;
     color: #fff;
   }
-  .hero-text h1 {
+  .hero-text .hero-text-title {
     font-size: 28px;
   }
-  .hero-text h1 span {
+  .hero-text .hero-text-title span {
     color: #B03A2E;
   }
-  .hero-text h2 {
+  .hero-text .hero-text-subtitle {
     font-size: 24px;
   }
   .hero-text .watch-btn {
@@ -1692,6 +1669,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   }
   .hero-div .hero-slider .slick-next:before {
     position: absolute;
+    right: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1762,8 +1740,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     overflow: hidden;
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero .hero-video {
-    background-size: cover;
-    background-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    overflow: hidden;
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero::after {
     position: absolute;
@@ -1775,12 +1756,17 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     background: rgba(0, 0, 0, 0.3);
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item img {
-    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     height: 100vh;
+    width: 100vw;
   }
   .hero-div .hero-slider .slick-dots {
     position: absolute;
     bottom: 0;
+    padding: 0;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1801,12 +1787,14 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     border-radius: 100%;
     color: transparent;
     background-color: #fff;
+    cursor: pointer;
   }
   .hero-div .hero-slider .slick-dots .slick-active button {
     border: none;
     border-radius: 100%;
     color: transparent;
     background-color: #B03A2E;
+    cursor: pointer;
   }
   .swiper {
     width: 100%;
@@ -1840,7 +1828,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   .slider-div .slider .slick-prev {
     position: absolute;
     top: 50%;
-    right: 0;
+    left: 0;
     background: transparent;
     border: none;
     color: transparent;
@@ -1852,22 +1840,18 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     top: 50%;
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
-    right: 0;
+    left: 20px;
     font-size: 50px;
     font-family: "Font Awesome 5 Pro";
-    content: '\f054';
+    content: '\f053';
     color: #333;
     z-index: 1;
-  }
-  .slider-div .slider .slick-prev:hover::before {
     cursor: pointer;
-    width: 60px;
-    height: 60px;
   }
   .slider-div .slider .slick-next {
     position: absolute;
     top: 50%;
-    left: 0;
+    right: 0;
     background: transparent;
     border: none;
     color: transparent;
@@ -1879,17 +1863,13 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     top: 50%;
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
-    left: 50px;
+    right: -20px;
     font-size: 50px;
     font-family: "Font Awesome 5 Pro";
-    content: '\f053';
+    content: '\f054';
     color: #333;
     z-index: 1;
-  }
-  .slider-div .slider .slick-next:hover::before {
     cursor: pointer;
-    width: 60px;
-    height: 60px;
   }
   .slider-div .slider .slick-dots {
     position: absolute;
@@ -1919,12 +1899,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     width: 80px;
     height: 10px;
     border-radius: 10px;
-  }
-  .slider-div .slider .slick-dots li button:hover {
     cursor: pointer;
   }
   .slider-div .slider .slick-dots .slick-active button {
     background: #E19F20;
+    cursor: pointer;
   }
   .slider-div .slider .slider-item {
     display: -webkit-box;
@@ -1940,23 +1919,24 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: 0;
+    margin: 0 40px;
   }
   .slider-div .slider .slider-item img {
-    width: 70%;
+    width: 95%;
     height: auto;
     border-radius: 5px;
   }
-  .slider-div .slider .slider-item h1 {
+  .slider-div .slider .slider-item .slider-title {
     color: #333;
   }
-  .slider-div .slider .slider-item h1 span {
+  .slider-div .slider .slider-item .slider-title span {
     color: #F39C12;
     font-weight: 900;
   }
   .slider-div .slider .slider-item .price {
     color: #F39C12;
     font-weight: 900;
+    font-size: 24px;
   }
   .slider-div .slider .slider-item .add-to-cart {
     border: 2px solid #E19F20;
@@ -1968,9 +1948,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-weight: 700;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .slider-div .slider .slider-item .add-to-cart:hover {
-    cursor: pointer;
     background-color: #E19F20;
     color: #333;
   }
@@ -2129,67 +2109,6 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
             justify-content: center;
     text-align: center;
   }
-  header .wrapper .navbar .menubar .list-item {
-    position: relative;
-    list-style-type: none;
-    padding: 20px;
-  }
-  header .wrapper .navbar .menubar .list-item .link {
-    -webkit-transition: .4s;
-    transition: .4s;
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-  }
-  header .wrapper .navbar .menubar .list-item .link::after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    width: 80%;
-    height: 2px;
-    margin: 0 auto;
-    background-color: #fff;
-    -webkit-transform: scale(0, 1);
-            transform: scale(0, 1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  }
-  header .wrapper .navbar .menubar .list-item .link:hover::after {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
-  }
-  header .wrapper .navbar .menubar .list-item .link:hover {
-    cursor: pointer;
-  }
-  header .wrapper .navbar .menubar .active {
-    background-color: #F39C12;
-    border-radius: 15px;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  header .wrapper .navbar .menubar .active .home {
-    -webkit-transition: .4s;
-    transition: .4s;
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  header .wrapper .navbar .menubar .active:hover {
-    background-color: #85C1E9;
-    cursor: pointer;
-  }
-  header .wrapper .navbar .menubar .active:hover .home {
-    color: #000;
-    font-weight: bold;
-  }
   header .wrapper .open-nav {
     -webkit-animation: slide-in 500ms;
             animation: slide-in 500ms;
@@ -2228,6 +2147,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
         -ms-flex-align: center;
             align-items: center;
     z-index: 1;
+    cursor: pointer;
   }
   header .wrapper .icons-div a {
     font-size: 24px;
@@ -2238,7 +2158,6 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   }
   header .wrapper .icons-div a:hover {
     color: #F39C12;
-    cursor: pointer;
   }
   header .hamburger-div {
     visibility: hidden;
@@ -2267,13 +2186,13 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     color: #fff;
     z-index: 1;
   }
-  .hero-text h1 {
+  .hero-text .hero-text-title {
     font-size: 24px;
   }
-  .hero-text h1 span {
+  .hero-text .hero-text-title span {
     color: #B03A2E;
   }
-  .hero-text h2 {
+  .hero-text .hero-text-subtitle {
     font-size: 20px;
   }
   .hero-text .watch-btn {
@@ -2418,8 +2337,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     overflow: hidden;
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero .hero-video {
-    background-size: cover;
-    background-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    overflow: hidden;
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item .wrapper-hero::after {
     position: absolute;
@@ -2431,12 +2353,17 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     background: rgba(0, 0, 0, 0.3);
   }
   .hero-div .hero-slider .slick-list .slick-track .hero-slider-item img {
-    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
     height: 100vh;
+    width: 100vw;
   }
   .hero-div .hero-slider .slick-dots {
     position: absolute;
     bottom: 0;
+    padding: 0;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2457,12 +2384,14 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     border-radius: 100%;
     color: transparent;
     background-color: #fff;
+    cursor: pointer;
   }
   .hero-div .hero-slider .slick-dots .slick-active button {
     border: none;
     border-radius: 100%;
     color: transparent;
     background-color: #B03A2E;
+    cursor: pointer;
   }
   .modal-nav {
     width: 100vw;
@@ -2512,14 +2441,14 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     color: #fff;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .search-form .form .close-icon:hover {
-    cursor: pointer;
     color: #F39C12;
     -webkit-transform: scale(1.3, 1.3);
             transform: scale(1.3, 1.3);
   }
-  .search-form .form h1 {
+  .search-form .form .form-title {
     color: #fff;
     font-size: 24px;
     letter-spacing: 2px;
@@ -2545,12 +2474,12 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     background: transparent;
     border: 2px solid #fff;
     color: #fff;
+    cursor: pointer;
     font-weight: bold;
   }
   .search-form .form .submit:hover {
     color: #F39C12;
     border: 2px solid #F39C12;
-    cursor: pointer;
     -webkit-transform: scale(1.1, 1.1);
             transform: scale(1.1, 1.1);
   }
@@ -2574,10 +2503,10 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     -webkit-transition: 0.3s;
     transition: 0.3s;
     font-size: 40px;
+    cursor: pointer;
   }
   .buy-div .cancel-buy:hover {
     color: #E74C3C;
-    cursor: pointer;
   }
   .buy-div .product {
     width: 260px;
@@ -2589,22 +2518,22 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     width: 100%;
     height: auto;
   }
-  .buy-div .product h1 {
+  .buy-div .product .product-title {
     text-transform: uppercase;
     color: #F39C12;
   }
-  .buy-div .product h2 {
+  .buy-div .product .product-price {
     color: #F39C12;
   }
   .buy-div .product .cancel-product {
     color: #F39C12;
     font-size: 30px;
+    cursor: pointer;
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
   .buy-div .product .cancel-product:hover {
     color: #E74C3C;
-    cursor: pointer;
   }
   .buy-open {
     -webkit-animation: slide-from-right 500ms;
@@ -2650,9 +2579,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-size: 30px;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+    cursor: pointer;
   }
   .liked i:hover {
-    cursor: pointer;
     color: #F39C12;
     -webkit-transform: scale(1.4, 1.4);
             transform: scale(1.4, 1.4);
@@ -2661,7 +2590,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     width: 100%;
     height: 100%;
   }
-  .liked h1 {
+  .liked .liked-title {
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -2689,14 +2618,14 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-size: 40px;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .register .close-register:hover {
     color: #F39C12;
     -webkit-transform: scale(1.4, 1.4);
             transform: scale(1.4, 1.4);
-    cursor: pointer;
   }
-  .register h1 {
+  .register .register-title {
     font-size: 24px;
     color: #F39C12;
     text-align: center;
@@ -2740,9 +2669,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-weight: bold;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .register form .submit-btn:hover {
-    cursor: pointer;
     -webkit-transform: scale(1.2, 1.2);
             transform: scale(1.2, 1.2);
     background-color: #F39C12;
@@ -2787,14 +2716,14 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-size: 40px;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .login .close-login:hover {
     color: #F39C12;
     -webkit-transform: scale(1.4, 1.4);
             transform: scale(1.4, 1.4);
-    cursor: pointer;
   }
-  .login h1 {
+  .login .login-title {
     font-size: 24px;
     color: #F39C12;
     text-align: center;
@@ -2838,9 +2767,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-weight: bold;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .login form .submit-btn:hover {
-    cursor: pointer;
     -webkit-transform: scale(1.2, 1.2);
             transform: scale(1.2, 1.2);
     background-color: #F39C12;
@@ -2891,7 +2820,7 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
   .slider-div .slider .slick-prev {
     position: absolute;
     top: 50%;
-    right: 0;
+    left: 0;
     background: transparent;
     border: none;
     color: transparent;
@@ -2903,22 +2832,18 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     top: 50%;
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
-    right: 0;
+    left: 20px;
     font-size: 50px;
     font-family: "Font Awesome 5 Pro";
-    content: '\f054';
+    content: '\f053';
     color: #333;
     z-index: 1;
-  }
-  .slider-div .slider .slick-prev:hover::before {
     cursor: pointer;
-    width: 60px;
-    height: 60px;
   }
   .slider-div .slider .slick-next {
     position: absolute;
     top: 50%;
-    left: 0;
+    right: 0;
     background: transparent;
     border: none;
     color: transparent;
@@ -2930,17 +2855,13 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     top: 50%;
     -webkit-transform: translate(-50%);
             transform: translate(-50%);
-    left: 50px;
+    right: -40px;
     font-size: 50px;
     font-family: "Font Awesome 5 Pro";
-    content: '\f053';
+    content: '\f054';
     color: #333;
     z-index: 1;
-  }
-  .slider-div .slider .slick-next:hover::before {
     cursor: pointer;
-    width: 60px;
-    height: 60px;
   }
   .slider-div .slider .slick-dots {
     position: absolute;
@@ -2970,12 +2891,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     width: 50px;
     height: 10px;
     border-radius: 10px;
-  }
-  .slider-div .slider .slick-dots li button:hover {
     cursor: pointer;
   }
   .slider-div .slider .slick-dots .slick-active button {
     background: #E19F20;
+    cursor: pointer;
   }
   .slider-div .slider .slider-item {
     display: -webkit-box;
@@ -3000,11 +2920,11 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     height: auto;
     border-radius: 5px;
   }
-  .slider-div .slider .slider-item h1 {
+  .slider-div .slider .slider-item .slider-title {
     color: #333;
     font-size: 24px;
   }
-  .slider-div .slider .slider-item h1 span {
+  .slider-div .slider .slider-item .slider-title span {
     color: #F39C12;
     font-weight: 900;
     font-size: 24px;
@@ -3024,9 +2944,9 @@ header .hamburger-div .open-menu, header .hamburger-div .close-menu {
     font-weight: 700;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    cursor: pointer;
   }
   .slider-div .slider .slider-item .add-to-cart:hover {
-    cursor: pointer;
     background-color: #E19F20;
     color: #333;
   }

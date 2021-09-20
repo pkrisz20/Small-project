@@ -13,6 +13,79 @@ body {
 
 .sticky {
     background-color: #167ABB;
+    height: auto;
+    width: 100vw;
+
+    .mobile-div {
+        display: none;
+    }
+
+    .hamburger-div {
+        visibility: hidden;
+        width: 30px;
+        height: 30px;
+        position: fixed;
+        right: 30px;
+        top: 20px;
+        z-index: 3;
+
+        .open-menu, .close-menu {
+            font-size: 30px;
+            color: #fff;
+        }
+    }
+
+    .wrapper {
+        height: auto;
+
+        .logo-div {
+
+            .logo {
+                width: 120px;
+                height: auto;
+            }
+        }
+
+        .navbar {
+            height: auto;
+
+            .menubar {
+
+                .list-item {
+
+                    padding: 15px;
+
+                    .link {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .icons-div {
+
+            a {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @media(max-width: 1200px){
+
+        .wrapper {
+    
+            .navbar {
+                height: 100vh;
+            }
+        }
+    }
+
+    @media(max-width: 800px){
+
+        .hamburger-div {
+            top: 20px;
+        }
+    }
 }
 
 //OVERLAY
@@ -34,7 +107,7 @@ body {
 header {
     width: 100vw;
     transition: 0.4s;
-    height: auto;
+    height: 120px;
     position: fixed;
     z-index: 3;
 
@@ -57,7 +130,7 @@ header {
 
     .wrapper {
         width:  1200px;
-        height: auto;
+        height: 120px;
         margin: 0 auto;
         display: flex;
         flex-direction: row;
@@ -89,67 +162,31 @@ header {
                 flex-direction: row;
                 justify-content: center;
                 text-align: center;
+                align-items: center;
     
                 .list-item {
-                    position: relative;
                     list-style-type: none;
                     padding: 20px;
+                    border-radius: 15px;
     
                     .link {
                         transition: .4s;
                         text-decoration: none;
                         color: #fff;
                         font-size: 20px;
-    
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            left: 0px;
-                            top: 50px;
-                            right: 0;
-                            bottom: 0;
-                            width: 80%;
-                            height: 2px;
-                            margin: 0 auto;
-                            background-color: #fff;
-                            transform: scale(0, 1);
-                            transform-origin: 0% 100%;
-                            transition: transform 0.3s ease;
-                        }
-    
-                        &:hover::after {
-                            transform: scale(1, 1);
-                        }
-    
-                        &:hover{
-                            cursor: pointer;
-                        }
+                        cursor: pointer;
+                    }
+
+                    &:hover {
+                        background-color: #F39C12;
+                        transition: 0.4s;
                     }
                 }
     
                 //ACTIVE MENU
                 .active {
                     background-color: #F39C12;
-                    border-radius: 15px;
-                    transition: 0.4s;
-    
-                    a {
-                        transition: .4s;
-                        text-decoration: none;
-                        color: #fff;
-                        font-size: 20px;
-                        font-weight: bold;
-                    }
-    
-                    &:hover {
-                        background-color: #85C1E9;
-                        cursor: pointer;
-    
-                        a {
-                            color: #000;
-                            font-weight: bold;
-                        }
-                    }
+                    cursor: pointer;
                 }
             }
 
@@ -169,10 +206,10 @@ header {
                 transition: .4s;
                 padding: 0 20px;
                 color: #fff;
+                cursor: pointer;
 
                 &:hover {
                     color: #F39C12;
-                    cursor: pointer;
                 }
             }
         }
@@ -184,11 +221,11 @@ header {
         height: 60px;
         position: fixed;
         right: 30px;
-        top: 10px;
+        top: 40px;
         z-index: 3;
 
         .open-menu, .close-menu {
-            font-size: 50px;
+            font-size: 60px;
             color: #fff;
         }
     }
@@ -203,7 +240,7 @@ header {
     color: #fff;
     z-index: 1;
 
-    h1 {
+    .hero-text-title {
         font-size: 36px;
 
         span {
@@ -211,7 +248,7 @@ header {
         }
     }
 
-    h2 {
+    .hero-text-subtitle {
         font-size: 30px;
     }
 
@@ -335,8 +372,9 @@ header {
                         overflow: hidden;
 
                         .hero-video {
-                            background-size: cover;
-                            background-position: center;
+                            object-fit: cover;
+                            object-position: center;
+                            overflow: hidden;
                         }
 
                         &::after {
@@ -351,8 +389,11 @@ header {
                     }
 
                     img {
-                        width: 100%;
+                        object-fit: cover;
                         height: 100vh;
+                        width: 100vw;
+                        object-position: center;
+                        overflow: hidden;
                     }
                 }
             }
@@ -361,6 +402,7 @@ header {
         .slick-dots {
             position: absolute;
             bottom: 0;
+            padding: 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -375,6 +417,7 @@ header {
                     border-radius: 100%;
                     color: transparent;
                     background-color: #fff;
+                    cursor: pointer;
                 }
             }
 
@@ -385,6 +428,7 @@ header {
                     border-radius: 100%;
                     color: transparent;
                     background-color: #B03A2E;
+                    cursor: pointer;
                 }
             }
         }
@@ -429,7 +473,7 @@ header {
             }
         }
 
-        h1 {
+        .form-title {
             color: #fff;
             letter-spacing: 2px;
         }
@@ -457,11 +501,11 @@ header {
             border: 2px solid #fff;
             color: #fff;
             font-weight: bold;
+            cursor: pointer;
 
             &:hover {
                 color: #F39C12;
                 border: 2px solid #F39C12;
-                cursor: pointer;
                 transform: scale(1.1, 1.1);
             }
         }
@@ -484,15 +528,15 @@ header {
         color: #fff;
         font-size: 40px;
         transition: 0.3s;
+        cursor: pointer;
 
         &:hover {
-            cursor: pointer;
             color: #F39C12;
             transform: scale(1.4, 1.4);
         }
     }
 
-    h1 {
+    .liked-title {
         color: #fff;
         text-align: center;
         padding: 20px;
@@ -519,16 +563,16 @@ header {
         right: -10px;
         color: #fff;
         font-size: 40px;
+        cursor: pointer;
         transition: 0.4s;
 
         &:hover {
             color: #F39C12;
             transform: scale(1.4, 1.4);
-            cursor: pointer;
         }
     }
 
-    h1 {
+    .register-title {
         color: #F39C12;
         text-align: center;
     }
@@ -563,10 +607,10 @@ header {
             padding: 10px 40px;
             font-size: 20px;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.4s;
 
             &:hover {
-                cursor: pointer;
                 transform: scale(1.2, 1.2);
                 background-color: #F39C12;
                 color: #fff;
@@ -614,15 +658,15 @@ header {
         color: #fff;
         font-size: 40px;
         transition: 0.4s;
+        cursor: pointer;
 
         &:hover {
             color: #F39C12;
             transform: scale(1.4, 1.4);
-            cursor: pointer;
         }
     }
 
-    h1 {
+    .login-title {
         color: #F39C12;
         text-align: center;
     }
@@ -657,10 +701,10 @@ header {
             padding: 10px 40px;
             font-size: 20px;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.4s;
 
             &:hover {
-                cursor: pointer;
                 transform: scale(1.2, 1.2);
                 background-color: #F39C12;
                 color: #fff;
@@ -708,10 +752,10 @@ header {
             color: #fff;
             transition: 0.3s;
             font-size: 40px;
+            cursor: pointer;
     
             &:hover {
                 color: #E74C3C;
-                cursor: pointer;
             }
         }
     
@@ -726,7 +770,7 @@ header {
                 height: auto;
             }
     
-            h1 {
+            .product-title {
                 text-transform: uppercase;
                 color:#F39C12;
             }
@@ -738,11 +782,11 @@ header {
             .cancel-product {
                 color: #F39C12;
                 font-size: 30px;
+                cursor: pointer;
                 transition: 0.4s;
     
                 &:hover {
                     color: #E74C3C;
-                    cursor: pointer;
                 }
             }
         }
@@ -791,6 +835,17 @@ header {
         }
     }
 
+    .swiper-pagination {
+        display: flex;
+        justify-content: center;
+
+        span {
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
     .swiper-button-prev, .swiper-button-next {
         color: #fff;
     }
@@ -826,6 +881,30 @@ header {
         .slick-prev {
             position: absolute;
             top: 50%;
+            left: 30px;
+            background: transparent;
+            border: none;
+            color: transparent;
+
+            &::before {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                top: 50%;
+                transform: translate(-50%);
+                left: 0;
+                font-size: 50px;
+                font-family: "Font Awesome 5 Pro";
+                content: '\f053';
+                color: #333;
+                z-index: 1;
+                cursor: pointer;
+            }
+        }
+
+        .slick-next {
+            position: absolute;
+            top: 50%;
             right: 0;
             background: transparent;
             border: none;
@@ -837,7 +916,7 @@ header {
                 height: 60px;
                 top: 50%;
                 transform: translate(-50%);
-                right: 0;
+                right: -30px;
                 font-size: 50px;
                 font-family: "Font Awesome 5 Pro";
                 content: '\f054';
@@ -852,37 +931,9 @@ header {
             }
         }
 
-        .slick-next {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            background: transparent;
-            border: none;
-            color: transparent;
-
-            &::before {
-                position: absolute;
-                width: 60px;
-                height: 60px;
-                top: 50%;
-                transform: translate(-50%);
-                left: 50px;
-                font-size: 50px;
-                font-family: "Font Awesome 5 Pro";
-                content: '\f053';
-                color: #333;
-                z-index: 1;
-            }
-
-            &:hover::before {
-                cursor: pointer;
-                width: 60px;
-                height: 60px;
-            }
-        }
-
         .slick-dots {
             position: absolute;
+            padding: 0;
             bottom: 0;
             padding: 0;
             margin: 0;
@@ -902,10 +953,7 @@ header {
                     width: 80px;
                     height: 10px;
                     border-radius: 10px;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
+                    cursor: pointer;
                 }
             }
 
@@ -913,24 +961,29 @@ header {
 
                 button {
                     background: #E19F20;
+                    cursor: pointer;
                 }
             }
         }
 
         .slider-item {
+            border: 2px solid #F39C12;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 0;
+            width: 150px;
+            height: auto;
+            margin: 0 30px;
+            padding: 15px;
             
             img {
-                width: 70%;
+                width: 95%;
                 height: auto;
                 border-radius: 5px;
             }
 
-            h1 {
+            .slider-title {
                 color: #333;
 
                 span {
@@ -953,9 +1006,9 @@ header {
                 padding: 10px 20px;
                 font-weight: 700;
                 transition: 0.4s;
+                cursor: pointer;
 
                 &:hover {
-                    cursor: pointer;
                     background-color: #E19F20;
                     color: #333;
                 }
@@ -1022,6 +1075,7 @@ header {
                     border-radius: 50%;
                     font-size: 22px;
                     color: #E19F20;
+                    cursor: pointer;
                 }
 
                 .text {
@@ -1032,7 +1086,7 @@ header {
                     font-weight: 300;
                     line-height: 24px;
 
-                    h3 {
+                    .contact-title {
                         font-weight: 500;
                         color: #E19F20;
                         margin: 0;
@@ -1056,7 +1110,7 @@ header {
                 height: auto;
                 margin: 0 auto;
 
-                h2 {
+                .form-title {
                     font-size: 30px;
                     color: #3C4856;
                     font-weight: 500;
@@ -1078,14 +1132,12 @@ header {
                         resize: none;
 
                         &:focus ~ span, &:valid ~ span {
-                            color: #e91e63;
                             font-size: 12px;
                             transform: translateY(-20px);
                         }
                     }
 
                     #email-contact:not(:placeholder-shown) ~ #span-contact {
-                        color: #e91e63;
                         font-size: 12px;
                         transform: translateY(-20px);
                     }
@@ -1101,7 +1153,6 @@ header {
                         resize: none;
 
                         &:focus ~ span, &:valid ~ span {
-                            color: #e91e63;
                             font-size: 12px;
                             transform: translateY(-20px);
                         }
@@ -1141,7 +1192,7 @@ header {
 }
 
 .map-div {
-    margin: 50px 0;
+    margin: 0;
     width: 100%;
     height: 60vh;
     background-color: hsl(200 ,50%, 80%);
@@ -1162,8 +1213,8 @@ header {
     
     header {
         width: 100vw;
-        transition: 0.4s;
         height: auto;
+        transition: 0.4s;
         position: fixed;
     
         .mobile-div {
@@ -1172,7 +1223,6 @@ header {
     
         .wrapper {
             width: 100vw;
-            height: auto;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
@@ -1207,68 +1257,6 @@ header {
                     flex-direction: column;
                     justify-content: center;
                     text-align: center;
-        
-                    .list-item {
-                        position: relative;
-                        list-style-type: none;
-                        padding: 20px;
-        
-                        .link {
-                            transition: .4s;
-                            text-decoration: none;
-                            color: #fff;
-                            font-size: 20px;
-        
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                left: 0px;
-                                top: 50px;
-                                right: 0;
-                                bottom: 0;
-                                width: 80%;
-                                height: 2px;
-                                margin: 0 auto;
-                                background-color: #fff;
-                                transform: scale(0, 1);
-                                transform-origin: 0% 100%;
-                                transition: transform 0.3s ease;
-                            }
-        
-                            &:hover::after {
-                                transform: scale(1, 1);
-                            }
-        
-                            &:hover{
-                                cursor: pointer;
-                            }
-                        }
-                    }
-        
-                    //HOME BUTTON
-                    .active {
-                        background-color: #F39C12;
-                        border-radius: 15px;
-                        transition: 0.4s;
-        
-                        .home {
-                            transition: .4s;
-                            text-decoration: none;
-                            color: #fff;
-                            font-size: 20px;
-                            font-weight: bold;
-                        }
-        
-                        &:hover {
-                            background-color: #85C1E9;
-                            cursor: pointer;
-        
-                            .home {
-                                color: #000;
-                                font-weight: bold;
-                            }
-                        }
-                    }
 
                     .nav-number {
                         display: flex;
@@ -1319,10 +1307,10 @@ header {
                     transition: .4s;
                     padding: 0 20px;
                     color: #fff;
+                    cursor: pointer;
     
                     &:hover {
                         color: #F39C12;
-                        cursor: pointer;
                     }
                 }
             }
@@ -1384,7 +1372,7 @@ header {
         text-align: center;
         color: #fff;
     
-        h1 {
+        .hero-text-title {
             font-size: 28px;
     
             span {
@@ -1392,7 +1380,7 @@ header {
             }
         }
     
-        h2 {
+        .hero-text-subtitle {
             font-size: 24px;
         }
     
@@ -1460,6 +1448,7 @@ header {
     
                 &:before {
                     position: absolute;
+                    right: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -1516,8 +1505,9 @@ header {
                             overflow: hidden;
     
                             .hero-video {
-                                background-size: cover;
-                                background-position: center;
+                                object-fit: cover;
+                                object-position: center;
+                                overflow: hidden;
                             }
     
                             &::after {
@@ -1532,8 +1522,10 @@ header {
                         }
     
                         img {
-                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
                             height: 100vh;
+                            width: 100vw;
                         }
                     }
                 }
@@ -1542,6 +1534,7 @@ header {
             .slick-dots {
                 position: absolute;
                 bottom: 0;
+                padding: 0;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -1556,6 +1549,7 @@ header {
                         border-radius: 100%;
                         color: transparent;
                         background-color: #fff;
+                        cursor: pointer;
                     }
                 }
     
@@ -1566,6 +1560,7 @@ header {
                         border-radius: 100%;
                         color: transparent;
                         background-color: #B03A2E;
+                        cursor: pointer;
                     }
                 }
             }
@@ -1600,35 +1595,6 @@ header {
             .slick-prev {
                 position: absolute;
                 top: 50%;
-                right: 0;
-                background: transparent;
-                border: none;
-                color: transparent;
-    
-                &::before {
-                    position: absolute;
-                    width: 60px;
-                    height: 60px;
-                    top: 50%;
-                    transform: translate(-50%);
-                    right: 0;
-                    font-size: 50px;
-                    font-family: "Font Awesome 5 Pro";
-                    content: '\f054';
-                    color: #333;
-                    z-index: 1;
-                }
-    
-                &:hover::before {
-                    cursor: pointer;
-                    width: 60px;
-                    height: 60px;
-                }
-            }
-    
-            .slick-next {
-                position: absolute;
-                top: 50%;
                 left: 0;
                 background: transparent;
                 border: none;
@@ -1640,18 +1606,37 @@ header {
                     height: 60px;
                     top: 50%;
                     transform: translate(-50%);
-                    left: 50px;
+                    left: 20px;
                     font-size: 50px;
                     font-family: "Font Awesome 5 Pro";
                     content: '\f053';
                     color: #333;
                     z-index: 1;
-                }
-    
-                &:hover::before {
                     cursor: pointer;
+                }
+            }
+    
+            .slick-next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                background: transparent;
+                border: none;
+                color: transparent;
+    
+                &::before {
+                    position: absolute;
                     width: 60px;
                     height: 60px;
+                    top: 50%;
+                    transform: translate(-50%);
+                    right: -20px;
+                    font-size: 50px;
+                    font-family: "Font Awesome 5 Pro";
+                    content: '\f054';
+                    color: #333;
+                    z-index: 1;
+                    cursor: pointer;
                 }
             }
     
@@ -1676,10 +1661,7 @@ header {
                         width: 80px;
                         height: 10px;
                         border-radius: 10px;
-    
-                        &:hover {
-                            cursor: pointer;
-                        }
+                        cursor: pointer;
                     }
                 }
     
@@ -1687,6 +1669,7 @@ header {
     
                     button {
                         background: #E19F20;
+                        cursor: pointer;
                     }
                 }
             }
@@ -1696,15 +1679,15 @@ header {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin: 0;
+                margin: 0 40px;
                 
                 img {
-                    width: 70%;
+                    width: 95%;
                     height: auto;
                     border-radius: 5px;
                 }
     
-                h1 {
+                .slider-title {
                     color: #333;
     
                     span {
@@ -1716,6 +1699,7 @@ header {
                 .price {
                     color: #F39C12;
                     font-weight: 900;
+                    font-size: 24px;
                 }
     
                 .add-to-cart {
@@ -1727,9 +1711,9 @@ header {
                     padding: 10px 20px;
                     font-weight: 700;
                     transition: 0.4s;
+                    cursor: pointer;
     
                     &:hover {
-                        cursor: pointer;
                         background-color: #E19F20;
                         color: #333;
                     }
@@ -1859,68 +1843,6 @@ header {
                     flex-direction: column;
                     justify-content: center;
                     text-align: center;
-        
-                    .list-item {
-                        position: relative;
-                        list-style-type: none;
-                        padding: 20px;
-        
-                        .link {
-                            transition: .4s;
-                            text-decoration: none;
-                            color: #fff;
-                            font-size: 20px;
-        
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                left: 0px;
-                                top: 50px;
-                                right: 0;
-                                bottom: 0;
-                                width: 80%;
-                                height: 2px;
-                                margin: 0 auto;
-                                background-color: #fff;
-                                transform: scale(0, 1);
-                                transform-origin: 0% 100%;
-                                transition: transform 0.3s ease;
-                            }
-        
-                            &:hover::after {
-                                transform: scale(1, 1);
-                            }
-        
-                            &:hover{
-                                cursor: pointer;
-                            }
-                        }
-                    }
-        
-                    //HOME BUTTON
-                    .active {
-                        background-color: #F39C12;
-                        border-radius: 15px;
-                        transition: 0.4s;
-        
-                        .home {
-                            transition: .4s;
-                            text-decoration: none;
-                            color: #fff;
-                            font-size: 20px;
-                            font-weight: bold;
-                        }
-        
-                        &:hover {
-                            background-color: #85C1E9;
-                            cursor: pointer;
-        
-                            .home {
-                                color: #000;
-                                font-weight: bold;
-                            }
-                        }
-                    }
                 }
             }
 
@@ -1946,6 +1868,7 @@ header {
                 justify-content: flex-end;
                 align-items: center;
                 z-index: 1;
+                cursor: pointer;
     
                 a {
                     font-size: 24px;
@@ -1955,7 +1878,6 @@ header {
     
                     &:hover {
                         color: #F39C12;
-                        cursor: pointer;
                     }
                 }
             }
@@ -1991,7 +1913,7 @@ header {
         color: #fff;
         z-index: 1;
     
-        h1 {
+        .hero-text-title {
             font-size: 24px;
     
             span {
@@ -1999,7 +1921,7 @@ header {
             }
         }
     
-        h2 {
+        .hero-text-subtitle {
             font-size: 20px;
         }
     
@@ -2122,8 +2044,9 @@ header {
                             overflow: hidden;
     
                             .hero-video {
-                                background-size: cover;
-                                background-position: center;
+                                object-fit: cover;
+                                object-position: center;
+                                overflow: hidden;
                             }
     
                             &::after {
@@ -2138,8 +2061,10 @@ header {
                         }
     
                         img {
-                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
                             height: 100vh;
+                            width: 100vw;
                         }
                     }
                 }
@@ -2148,6 +2073,7 @@ header {
             .slick-dots {
                 position: absolute;
                 bottom: 0;
+                padding: 0;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -2162,6 +2088,7 @@ header {
                         border-radius: 100%;
                         color: transparent;
                         background-color: #fff;
+                        cursor: pointer;
                     }
                 }
     
@@ -2172,6 +2099,7 @@ header {
                         border-radius: 100%;
                         color: transparent;
                         background-color: #B03A2E;
+                        cursor: pointer;
                     }
                 }
             }
@@ -2216,15 +2144,15 @@ header {
                 font-size: 40px;
                 color: #fff;
                 transition: 0.4s;
+                cursor: pointer;
 
                 &:hover {
-                    cursor: pointer;
                     color: #F39C12;
                     transform: scale(1.3, 1.3);
                 }
             }
 
-            h1 {
+            .form-title {
                 color: #fff;
                 font-size: 24px;
                 letter-spacing: 2px;
@@ -2252,12 +2180,12 @@ header {
                 background: transparent;
                 border: 2px solid #fff;
                 color: #fff;
+                cursor: pointer;
                 font-weight: bold;
 
                 &:hover {
                     color: #F39C12;
                     border: 2px solid #F39C12;
-                    cursor: pointer;
                     transform: scale(1.1, 1.1);
                 }
             }
@@ -2282,10 +2210,10 @@ header {
                 color: #fff;
                 transition: 0.3s;
                 font-size: 40px;
+                cursor: pointer;
         
                 &:hover {
                     color: #E74C3C;
-                    cursor: pointer;
                 }
             }
         
@@ -2300,23 +2228,23 @@ header {
                     height: auto;
                 }
         
-                h1 {
+                .product-title {
                     text-transform: uppercase;
                     color:#F39C12;
                 }
         
-                h2 {
+                .product-price {
                     color: #F39C12;
                 }
         
                 .cancel-product {
                     color: #F39C12;
                     font-size: 30px;
+                    cursor: pointer;
                     transition: 0.4s;
         
                     &:hover {
                         color: #E74C3C;
-                        cursor: pointer;
                     }
                 }
             }
@@ -2354,9 +2282,9 @@ header {
             color: #fff;
             font-size: 30px;
             transition: 0.3s;
+            cursor: pointer;
 
             &:hover {
-                cursor: pointer;
                 color: #F39C12;
                 transform: scale(1.4, 1.4);
             }
@@ -2367,7 +2295,7 @@ header {
             height: 100%;
         }
 
-        h1 {
+        .liked-title {
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -2396,15 +2324,15 @@ header {
             color: #fff;
             font-size: 40px;
             transition: 0.4s;
+            cursor: pointer;
 
             &:hover {
                 color: #F39C12;
                 transform: scale(1.4, 1.4);
-                cursor: pointer;
             }
         }
 
-        h1 {
+        .register-title {
             font-size: 24px;
             color: #F39C12;
             text-align: center;
@@ -2441,9 +2369,9 @@ header {
                 font-size: 20px;
                 font-weight: bold;
                 transition: 0.4s;
+                cursor: pointer;
 
                 &:hover {
-                    cursor: pointer;
                     transform: scale(1.2, 1.2);
                     background-color: #F39C12;
                     color: #fff;
@@ -2492,15 +2420,15 @@ header {
             color: #fff;
             font-size: 40px;
             transition: 0.4s;
+            cursor: pointer;
 
             &:hover {
                 color: #F39C12;
                 transform: scale(1.4, 1.4);
-                cursor: pointer;
             }
         }
 
-        h1 {
+        .login-title {
             font-size: 24px;
             color: #F39C12;
             text-align: center;
@@ -2537,9 +2465,9 @@ header {
                 font-size: 20px;
                 font-weight: bold;
                 transition: 0.4s;
+                cursor: pointer;
 
                 &:hover {
-                    cursor: pointer;
                     transform: scale(1.2, 1.2);
                     background-color: #F39C12;
                     color: #fff;
@@ -2589,35 +2517,6 @@ header {
             .slick-prev {
                 position: absolute;
                 top: 50%;
-                right: 0;
-                background: transparent;
-                border: none;
-                color: transparent;
-    
-                &::before {
-                    position: absolute;
-                    width: 60px;
-                    height: 60px;
-                    top: 50%;
-                    transform: translate(-50%);
-                    right: 0;
-                    font-size: 50px;
-                    font-family: "Font Awesome 5 Pro";
-                    content: '\f054';
-                    color: #333;
-                    z-index: 1;
-                }
-    
-                &:hover::before {
-                    cursor: pointer;
-                    width: 60px;
-                    height: 60px;
-                }
-            }
-    
-            .slick-next {
-                position: absolute;
-                top: 50%;
                 left: 0;
                 background: transparent;
                 border: none;
@@ -2629,18 +2528,37 @@ header {
                     height: 60px;
                     top: 50%;
                     transform: translate(-50%);
-                    left: 50px;
+                    left: 20px;
                     font-size: 50px;
                     font-family: "Font Awesome 5 Pro";
                     content: '\f053';
                     color: #333;
                     z-index: 1;
-                }
-    
-                &:hover::before {
                     cursor: pointer;
+                }
+            }
+    
+            .slick-next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                background: transparent;
+                border: none;
+                color: transparent;
+    
+                &::before {
+                    position: absolute;
                     width: 60px;
                     height: 60px;
+                    top: 50%;
+                    transform: translate(-50%);
+                    right: -40px;
+                    font-size: 50px;
+                    font-family: "Font Awesome 5 Pro";
+                    content: '\f054';
+                    color: #333;
+                    z-index: 1;
+                    cursor: pointer;
                 }
             }
     
@@ -2665,10 +2583,7 @@ header {
                         width: 50px;
                         height: 10px;
                         border-radius: 10px;
-    
-                        &:hover {
-                            cursor: pointer;
-                        }
+                        cursor: pointer;
                     }
                 }
     
@@ -2676,6 +2591,7 @@ header {
     
                     button {
                         background: #E19F20;
+                        cursor: pointer;
                     }
                 }
             }
@@ -2695,7 +2611,7 @@ header {
                     border-radius: 5px;
                 }
     
-                h1 {
+                .slider-title {
                     color: #333;
                     font-size: 24px;
     
@@ -2721,9 +2637,9 @@ header {
                     padding: 5px 15px;
                     font-weight: 700;
                     transition: 0.4s;
+                    cursor: pointer;
     
                     &:hover {
-                        cursor: pointer;
                         background-color: #E19F20;
                         color: #333;
                     }
@@ -2806,6 +2722,7 @@ header {
 }
 
 @media screen and (max-width: 570px) {
+
     .contact {
         position: relative;
         width: 100%;
